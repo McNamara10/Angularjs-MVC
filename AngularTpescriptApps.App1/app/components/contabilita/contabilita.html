@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Contabilità</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+    <div ng-controller="ContabilitaController as cc" class="container">
+        <h1 class="page-header">{{cc.title}} <small>a-z</small></h1>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">Operazione</th>
+                            <th style="text-align:center">Tipo Operazione</th>
+                            <th style="text-align:center">Data</th>
+                            <th style="text-align:center">Importo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="contabilita in cc.stores">
+                            <td>{{contabilita.Operazione}}</td>
+                            <td>{{contabilita.Tipo}}</td>
+                            <td>{{contabilita.Data}}</td>
+                            <td>{{contabilita.Importo}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-12">
+           
+            <div class="col-md-3">
+                <div class="alert-danger"><h3>Importo Uscite:  {{cc.totale_uscite()}}</h3></div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="alert-success"><h3>Importo Entrate:  {{cc.totale_entrate()}}</h3></div>
+            </div>
+           
+            <div class="alert-info col-md-9"><h3>Utile:  {{cc.utile()}}</h3></div>
+                
+
+                
+            
+        </div>
+        
+        <button ng-click="cc.clickme()">Click Me</button>
+    </div>
+
+    
+        
+</body>
+</html>
